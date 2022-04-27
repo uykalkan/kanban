@@ -42,6 +42,7 @@ const Kanban = ({data, onChange}) => {
             )
 
             destinationColumn.tasks = resetOrderNumbers(destinationColumn.tasks)
+            sourceColumn.tasks = resetOrderNumbers(sourceColumn.tasks)
 
             onChange(newData, {type : result.type, columns : [source.droppableId, destination.droppableId], taskId : result.draggableId})
 

@@ -7,7 +7,7 @@ export function App() {
     const [data, setData] = useState(fakeData);
 
     const onChange = (newData, res) => {
-        console.log(getChangedColumnsAndTasks(fakeData, newData))
+        console.log(getChangedColumnsAndTasks(fakeData, newData, res))
         setData(newData)
     }
 
