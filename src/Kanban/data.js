@@ -9,4 +9,7 @@ export const fakeData = [
         {id: "tt-5-t", title: "Test Et", columnId : "cc-2-c", order: 2}
     ]},
     {id: "cc-3-c", title: "Done", order: 2, tasks: []},
+    {id: "cc-4-c", title: "Done", order: 3, tasks: []},
+    {id: "cc-5-c", title: "Done", order: 4, tasks: []},
+    {id: "cc-6-c", title: "Done", order: 5, tasks: []},
 ]
