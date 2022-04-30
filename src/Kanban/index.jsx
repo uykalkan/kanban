@@ -51,30 +51,32 @@ const Kanban = ({data, onChange}) => {
     }
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId="droppable" direction="horizontal" type="columns">
-                {(provided, snapshot) => (
-                    <div className={styles.root} ref={provided.innerRef} {...provided.droppableProps}>
-                        {data.map((item, index) => (
-                            <Draggable key={item.id} draggableId={item.id} index={index}>
-                                {(provided, snapshot) => (
-                                    <div className={styles.column} ref={provided.innerRef} {...provided.draggableProps}>
-                                        <div {...provided.dragHandleProps}>
-                                            <div>sürükle</div>
-                                            {item.title}
-                                        </div>
+        <div className={styles.wrapper}>
+            <DragDropContext onDragEnd={onDragEnd}>
+                <Droppable droppableId="droppable" direction="horizontal" type="columns">
+                    {(provided, snapshot) => (
+                        <div className={styles.root} ref={provided.innerRef} {...provided.droppableProps}>
+                            {data.map((item, index) => (
+                                <Draggable key={item.id} draggableId={item.id} index={index}>
+                                    {(provided, snapshot) => (
+                                        <div className={styles.column} ref={provided.innerRef} {...provided.draggableProps}>
+                                            <div {...provided.dragHandleProps}>
+                                                <div>sürükle</div>
+                                                {item.title}
+                                            </div>
 
-                                        <hr/>
-                                        <Tasklist tasks={item.tasks} column={item} />
-                                    </div>
-                                )}
-                            </Draggable>
-                        ))}
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
-        </DragDropContext>
+                                            <hr/>
+                                            <Tasklist tasks={item.tasks} column={item} />
+                                        </div>
+                                    )}
+                                </Draggable>
+                            ))}
+                            {provided.placeholder}
+                        </div>
+                    )}
+                </Droppable>
+            </DragDropContext>
+        </div>
     )
 }
 
